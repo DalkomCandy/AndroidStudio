@@ -1,16 +1,18 @@
 package com.seook.travelapp_hanium
 
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.seook.travelapp_hanium.sub_choose_fragments.DegreeFragment
-import kotlinx.android.synthetic.main.fragment_choose.*
+import androidx.navigation.findNavController
+import com.seook.travelapp_hanium.databinding.FragmentChooseBinding
+
+
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+
+    private lateinit var binding: FragmentChooseBinding
 
     private val kode = arrayOf(
         "학력",
@@ -36,32 +38,6 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         "pertanyaan 21"
     )
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        var itemKode: TextView
-        var itemKategori: TextView
-        var itemIsi: TextView
-
-        init {
-            itemKode = itemView.findViewById(R.id.kodePertanyaan)
-            itemKategori = itemView.findViewById(R.id.kategori)
-            itemIsi = itemView.findViewById(R.id.isiPertanyaan)
-
-            itemView.setOnClickListener {
-                var position: Int = getAdapterPosition()
-                val context = itemView.context
-
-                val intent = Intent(context, MainActivity::class.java).apply {
-                    putExtra("NUMBER", position)
-                    putExtra("CODE", itemKode.text)
-                    putExtra("CATEGORY", itemKategori.text)
-                    putExtra("CONTENT", itemIsi.text)
-                }
-                context.startActivity(intent)
-            }
-        }
-
-    }
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         val v = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.card_layout, viewGroup, false)
@@ -69,15 +45,34 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
+
         viewHolder.itemKode.text = kode[i]
         viewHolder.itemKategori.text = kategori[i]
         viewHolder.itemIsi.text = isi[i]
-
     }
 
     override fun getItemCount(): Int {
         return kode.size
     }
+
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        var itemKode: TextView = itemView.findViewById(R.id.kodePertanyaan)
+        var itemKategori: TextView = itemView.findViewById(R.id.kategori)
+        var itemIsi: TextView = itemView.findViewById(R.id.isiPertanyaan)
+
+        init {
+            itemView.setOnClickListener {
+                if ( itemKode.text == "학력") {
+                    it.findNavController().navigate(R.id.action_chooseFragment_to_degreeFragment)
+                }
+                else {
+                    it.findNavController().navigate(R.id.action_chooseFragment_to_profileFragment)
+                }
+            }
+        }
+    }
+
 
 
 }

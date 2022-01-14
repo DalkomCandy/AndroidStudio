@@ -7,14 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.seook.travelapp_hanium.R
 import com.seook.travelapp_hanium.RecyclerAdapter
 import com.seook.travelapp_hanium.databinding.FragmentChooseBinding
 import kotlinx.android.synthetic.main.fragment_choose.*
-import kotlinx.android.synthetic.main.fragment_search.*
 
 class ChooseFragment : Fragment() {
     private lateinit var binding: FragmentChooseBinding
@@ -53,4 +51,6 @@ class ChooseFragment : Fragment() {
         }
 
     }
+
+
 }

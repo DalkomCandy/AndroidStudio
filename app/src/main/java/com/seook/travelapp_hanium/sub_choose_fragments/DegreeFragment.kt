@@ -17,34 +17,28 @@ import androidx.recyclerview.widget.RecyclerView
 import com.seook.travelapp_hanium.MainActivity
 import com.seook.travelapp_hanium.R
 import com.seook.travelapp_hanium.RecyclerAdapter
+import com.seook.travelapp_hanium.RecyclerAdapter_Degree
 import com.seook.travelapp_hanium.databinding.FragmentChooseBinding
+import com.seook.travelapp_hanium.databinding.FragmentDegreeBinding
 import kotlinx.android.synthetic.main.fragment_choose.*
 import kotlinx.android.synthetic.main.fragment_search.*
 import kotlinx.android.synthetic.main.fragment_search.view.*
 
 class DegreeFragment : Fragment() {
 
-    private lateinit var binding: FragmentChooseBinding
+    private lateinit var binding: FragmentDegreeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_choose, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_degree, container, false)
+        binding.backTap.setOnClickListener() {
+            it.findNavController().navigate(R.id.action_degreeFragment_to_chooseFragment)
 
-        binding.historyTap.setOnClickListener {
-            it.findNavController().navigate(R.id.action_chooseFragment_to_historyFragment)
         }
-        binding.profileTap.setOnClickListener {
-            it.findNavController().navigate(R.id.action_chooseFragment_to_profileFragment)
-        }
-        binding.searchTap.setOnClickListener {
-            it.findNavController().navigate(R.id.action_chooseFragment_to_searchFragment)
-        }
-        binding.homeTap.setOnClickListener {
-            it.findNavController().navigate(R.id.action_chooseFragment_to_homeFragment)
-        }
+
         return binding.root
     }
 
@@ -56,7 +50,7 @@ class DegreeFragment : Fragment() {
 
         recycler_view.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = RecyclerAdapter()
+            adapter = RecyclerAdapter_Degree()
         }
 
     }
