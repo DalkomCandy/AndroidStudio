@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="96dp"
+    android:layout_height="wrap_content"
     android:layout_marginTop="12dp"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
@@ -16,62 +16,41 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/kodePertanyaan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/asiahead2"
+            android:text="@string/kode"
+            android:textSize="18dp" />
 
-            <TextView
-                android:id="@+id/kodePertanyaan"
-                android:layout_width="181dp"
-                android:layout_height="20dp"
-                android:textSize="18dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="68dp"
-                android:fontFamily="@font/asiahead2"
-                android:text="@string/kode" />
-
-            <TextView
-                android:id="@+id/kategori"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:fontFamily="@font/asiahead"
-                android:text="@string/kategori"
-                android:gravity="end|center_vertical"/>
-
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/kategori"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="20dp"
+            android:layout_below="@id/kodePertanyaan"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/asiahead"
+            android:text="@string/kategori" />
 
-            <TextView
-                android:id="@+id/isiPertanyaan"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="44dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:gravity="top"
-                android:text="@string/isi" />
+        <TextView
+            android:id="@+id/isiPertanyaan"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@id/kategori"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/asiahead"
+            android:text="@string/isi" />
 
-            <TextView
-                android:id="@+id/isiPertanyaan2"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="44dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:gravity="top"
-                android:text="@string/isi" />
-
-        </LinearLayout>
 
     </RelativeLayout>
 

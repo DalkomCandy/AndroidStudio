@@ -1,4 +1,4 @@
-package com.seook.travelapp_hanium
+package com.seook.travelapp_hanium.sub_choose_fragments
 
 import android.content.Intent
 import android.util.Log
@@ -7,10 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.seook.travelapp_hanium.R
 import com.seook.travelapp_hanium.sub_choose_fragments.DegreeFragment
 import kotlinx.android.synthetic.main.fragment_choose.*
 
-class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter_Degree : RecyclerView.Adapter<RecyclerAdapter_Degree.ViewHolder>() {
 
     private val kode = arrayOf(
         "학력",
@@ -51,7 +52,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
                 var position: Int = getAdapterPosition()
                 val context = itemView.context
 
-                val intent = Intent(context, MainActivity::class.java).apply {
+                val intent = Intent(context, DegreeFragment::class.java).apply {
                     putExtra("NUMBER", position)
                     putExtra("CODE", itemKode.text)
                     putExtra("CATEGORY", itemKategori.text)

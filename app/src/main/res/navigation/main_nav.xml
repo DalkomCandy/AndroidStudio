@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_chooseFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_chooseFragment_to_degreeFragment"
+            app:destination="@id/degreeFragment" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
@@ -95,4 +98,8 @@
             android:id="@+id/action_searchFragment_to_historyFragment"
             app:destination="@id/historyFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/degreeFragment"
+        android:name="com.seook.travelapp_hanium.sub_choose_fragments.DegreeFragment"
+        android:label="DegreeFragment" />
 </navigation>
