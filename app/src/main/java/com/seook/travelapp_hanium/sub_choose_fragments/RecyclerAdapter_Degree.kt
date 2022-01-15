@@ -57,10 +57,10 @@ class RecyclerAdapter_Degree : RecyclerView.Adapter<RecyclerAdapter_Degree.ViewH
         init {
             itemView.setOnClickListener {
                 if ( itemKode.text == "학력") {
-                    it.findNavController().navigate(R.id.action_chooseFragment_to_degreeFragment)
+                    it.findNavController().navigate(R.id.action_degreeFragment_to_chooseFragment)
                 }
                 else {
-                    it.findNavController().navigate(R.id.action_chooseFragment_to_profileFragment)
+                    it.findNavController().navigate(R.id.action_degreeFragment_to_chooseFragment)
                 }
             }
         }
