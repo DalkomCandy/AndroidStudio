@@ -66,7 +66,6 @@ class DrawingView(context: Context,attrs:AttributeSet): View(context,attrs) {
         canvas = Canvas(mCanvasBitmap!!)
     }
 
-
     /**
      * This method is called when a stroke is drawn on the canvas
      * as a part of the painting.
