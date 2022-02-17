@@ -18,6 +18,9 @@ class ExerciseActivity : AppCompatActivity() {
     private var exerciseprogress = 0
     private var exerciseTime = 30
 
+    private var exerciseList : ArrayList<ExerciseModel>? = null
+    private var currentExercisePosition = -1
+
     private var binding: ActivityExerciseBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +33,7 @@ class ExerciseActivity : AppCompatActivity() {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
 
+        exerciseList = Constants.defaultExerciseList()
         binding?.toolbarExercise?.setNavigationOnClickListener {
             onBackPressed()
         }
@@ -49,6 +53,7 @@ class ExerciseActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
+                currentExercisePosition++ // Go To Next Exercise
                 setupExerciseView()
             }
         }.start()
